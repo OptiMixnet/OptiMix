@@ -65,6 +65,10 @@ To run the rest of the artifact suite, set the `Input` argument as described bel
 
 2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)
 
+## Hardware Requirements
+The code is tested to run on commodity hardware with 16 GB RAM, 8 cores, and 50 GB hard disk storage.
+
+## Brief description of individual class files
 
 ## License
 MIT or your preferred license.
