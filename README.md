@@ -29,24 +29,27 @@ These dependencies can be easily installed using the following command: `pip ins
 
 ## Code execution
 
+Please refer to the `OptiMix_artifact.pdf` for detailed descriptions of each experiment and the claims they support. To execute the code, run: `python3 Main.py`
+You will be prompted to enter an `Input` value to select the desired experiment. Below is a mapping of inputs to experiments and figures/tables:
 
-The file Main.py contains the code for producing all the results mentioned in LAMP evaluations.
 
-    Just executing python3 Main.py and entering 0 as an input argument will automatically perform all the experiments and generate results in Results folder.
 
-Specifically, the following results can be generated individually, by specifying appropriate input:
+- E1:  `Input = 1`
+- E2:  `Input = 2`
+- E3:  `Input = 3`
 
-    Fig. 5 (E1 and E2)
-        Input: 12
-
-    Fig. 6a, Fig. 6b, Fig. 7c , Fig. 8c (E3)
-        Input: 3
-
-    Fig. 7, Fig. 8 (E4)
-        Input: 4
-
-    Fig. 9
-        Input: 9
+- Fig.~2: `Input = 22`
+- Fig.~3: `Input = 33`
+- Fig.~4: `Input = 44`
+- Fig.~5: `Input = 55`
+- Fig.~6: `Input = 66`
+- Fig.~7: `Input = 77`
+- Fig.~8: `Input = 88`
+- Fig.~9: `Input = 99`
+  
+- Tab.~1: `Input = 100`
+- Tab.~2: `Input = 200`
+- Tab.~3: `Input = 300`
 
 
 ## License
