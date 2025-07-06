@@ -22,12 +22,32 @@ All required dependencies for execution are listed in the `dependencies.txt` fil
 - scikit-learn-extra==0.2.0
 - scipy==1.8.1
 - simpy==4.0.1
+  
 These dependencies can be easily installed using the following command: `pip install -r dependencies.txt`
 
 
 
-## How to Use
-Describe steps here...
+## Code execution
+
+
+The file Main.py contains the code for producing all the results mentioned in LAMP evaluations.
+
+    Just executing python3 Main.py and entering 0 as an input argument will automatically perform all the experiments and generate results in Results folder.
+
+Specifically, the following results can be generated individually, by specifying appropriate input:
+
+    Fig. 5 (E1 and E2)
+        Input: 12
+
+    Fig. 6a, Fig. 6b, Fig. 7c , Fig. 8c (E3)
+        Input: 3
+
+    Fig. 7, Fig. 8 (E4)
+        Input: 4
+
+    Fig. 9
+        Input: 9
+
 
 ## License
 MIT or your preferred license.
