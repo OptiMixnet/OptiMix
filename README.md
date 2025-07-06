@@ -68,7 +68,50 @@ To run the rest of the artifact suite, set the `Input` argument as described bel
 ## Hardware Requirements
 The code is tested to run on commodity hardware with 16 GB RAM, 8 cores, and 50 GB hard disk storage.
 
-## Brief description of individual class files
+## Description of Files in the Repository
+
+The artifact repository contains the following main files and directories:
+
+-	CLUSTER.py: Clustering is the first step in LARMix [29], used for optimizing latency.
+  
+-	config.py : This file is the config file, containing all the variables and their values needed to initialize the functions required for running the experiments. You can adjust the variables as needed.
+  
+- Data_Gen.py: This file helps generate some initial datasets needed for the running OptiMix using both the Nym and RIEP datasets. It is also useful for reproducing Table 3.  
+- data_refine.py : This .py file helps adapt some of the data interfaces used in OptiMix.
+- data_set.py: Datasets is a class for creating a raw dataset from Nym or RIPE, making it usable for emulating 
+the link delays between mix nodes.  
+- dependencies.txt : Provides the necessary script to install the dependencies. 
+- Fancy_Plot.py: This class or set of functions provides all the necessary code for generating the plots used in OptiMix. 
+- FCP_Functions.py: This .py file includes strategies that a mixnode adversary might consider when corrupting mindnodes 
+in mixnets with stratified topologies. 
+- FCP_Functions_.py : This .py file includes strategies that a mixnode adversary might consider when corrupting mindnodes 
+in mixnets with cascade topologies.
+- GateWay.py : Emulates the clients connecting to the mixnets.
+- Greedy_LARMIX.py: Provides the Greedy algorithm in  LARMix [29].  
+- LARMix_Greedy.py : Provides the Greedy algorithm in  LARMix [29].
+- Main.py: This file provides instructions regarding how to run the experiments described in the main body of the paper. 
+- Main_F.py: Main_F.py contains a comprehensive set of functions for analyzing OptiMix on stratified topologies, including all necessary functions to compute anonymity and latency metrics.
+Additionally, this file includes the main functions required to reproduce the key results of LARMix [29] and LAMP [30]. 
+- Main_F_.py: Main_F.py contains a comprehensive set of functions for analyzing OptiMix on cascade (also butterfly) topologies, including all necessary functions to compute anonymity and latency metrics. 
+- Message_.py: Simulates the messages generated and sent by the clients.  
+- Message_Genration_and_mix_net_process0.py:  This Python file, on behalf of clients, generates the messages to be sent to the mixnet for cascade (butterfly) topologies.
+- Message_Genration_and_mix_net_process_.py : This Python file, on behalf of clients, generates the messages to be sent to the mixnet for stratified topologies.
+- Message_Genration_and_mix_net_process_P.py : This Python file, on behalf of clients, generates the messages to be sent to the mixnet 
+for the prior works LARMix [29] and LAMP [30].
+- Mix_Node_.py : Simulates using discrete event simulation, a mixnode in mixnets.
+- MixNetArrangement.py: This .py file implements the diversification algorithm used in LARMix [29], which helps arrange the mixnodes into layers. 
+- NYM.py : This .py file provides the main simulation components necessary to simulate a stratified mixnet as used in OptiMix.
+- NYM_.py: Mix_Net: This .py file provides the main simulation components necessary to simulate a cascade (butterfly) mixnet as used in OptiMix. 
+- Nym_data.json  : The Nym dataset used in the experiments.
+- Nym_dataset.json  : The Nym dataset used in the experiments (version 2).
+- NYM_P.py : Mix_Net: This .py file provides the main simulation components necessary to simulate 
+- mixnets used in prior works LARMix [29] and LAMP [30].
+- OptiMix.py
+- Ripe_dataset.json: The RIPE dataset used in the experiments.
+- Routings.py : This function helps to model the routing approaches in the prior works LARMix [29] and LAMP [30].
+- Sim.py: This .py file also includes the necessary simulation components for reproducing simulations of OptiMix.
+- Sim_P.py: This .py file also includes the necessary simulation components for reproducing simulations of prior works LARMix [29] and LAMP [30].
+
 
 ## License
 MIT or your preferred license.
