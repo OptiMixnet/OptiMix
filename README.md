@@ -70,7 +70,7 @@ The code is tested to run on commodity hardware with 16 GB RAM, 8 cores, and 50 
 
 ## Description of Files in the Repository
 
-The artifact repository contains the following main files and directories:
+The artifact repository contains the following main files:
 
 -	`CLUSTER.py`: Clustering is the first step in LARMix [29], used for optimizing latency.
   
