@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This Python file, on behalf of clients, generates the messages to be sent to the MCINetworks for stratified topologies.
+This Python file, on behalf of clients, generates the messages to be sent to the mixnet for stratified topologies.
 """
 
 import numpy as np

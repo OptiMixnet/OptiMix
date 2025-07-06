@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This Python file, on behalf of clients, generates the messages to be sent to the MCINetworks for cascade (butterfly) topologies.
+This Python file, on behalf of clients, generates the messages to be sent to the mixnet for cascade (butterfly) topologies.
 """
 import math
 import numpy as np

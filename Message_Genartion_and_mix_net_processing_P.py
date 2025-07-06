@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-This Python file, on behalf of clients, generates the messages to be sent to the MCINetworks 
+This Python file, on behalf of clients, generates the messages to be sent to the mixnet 
 for the prior works LARMix [29] and LAMP [30].
 """
 import math
