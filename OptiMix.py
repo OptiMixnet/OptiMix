@@ -676,7 +676,7 @@ class OptiMix(object):
                      
             message =  ["Thank you for your patience. In case LaTeX is not installed on your system, ",
             "the above lines display the result of the table as rendered output.",
-            "Otherwise, the results of this experiment have been saved as: Table2.pdf",
+            "Otherwise, the results of this experiment have been saved as: Table3.pdf",
 
             " Please check the Tables folder to access these files." ]
             
