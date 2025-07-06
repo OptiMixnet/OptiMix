@@ -85,6 +85,7 @@ def generate_latex_table(tau, L1, L2, L3, L4):
 
 
 
+
 def create_pdf_from_latex_table(tau, L1, L2, L3, L4, output_filename="table_output.pdf"):
     table_code = generate_latex_table(tau, L1, L2, L3, L4)
 
@@ -98,6 +99,7 @@ def create_pdf_from_latex_table(tau, L1, L2, L3, L4, output_filename="table_outp
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{caption}
+\usepackage{adjustbox}
 \begin{document}
 \begin{center}
 """ + table_code + r"""
@@ -109,41 +111,50 @@ def create_pdf_from_latex_table(tau, L1, L2, L3, L4, output_filename="table_outp
     with open(tex_filename, "w") as f:
         f.write(full_latex)
 
-    # Compile the LaTeX file into PDF
-    subprocess.run(["pdflatex", tex_filename], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        # Try compiling LaTeX using pdflatex
+        result = subprocess.run(["pdflatex", tex_filename], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    temp_pdf = "temp_table.pdf"
+        temp_pdf = "temp_table.pdf"
+        if os.path.exists(temp_pdf):
+            if os.path.exists(output_filename):
+                try:
+                    os.remove(output_filename)
+                except PermissionError:
+                    print(f"⚠️ Cannot overwrite '{output_filename}' — file may be open.")
+                    return
 
-    if os.path.exists(temp_pdf):
-        # Try removing existing output file if it exists
-        if os.path.exists(output_filename):
-            try:
-                os.remove(output_filename)
-            except PermissionError:
-                print(f"⚠️ Cannot overwrite '{output_filename}' — file may be open.")
-                return
-
-        # Move PDF to target filename
-        try:
             shutil.move(temp_pdf, output_filename)
-            print(f"✅ PDF generated: {output_filename}")
-        except Exception as e:
-            print(f"❌ Error saving PDF: {e}")
-    else:
-        print("❌ PDF compilation failed. Check LaTeX installation.")
-        
-        print("It seems like you don’t have LaTeX installed on your machine. In this case,",
-             " we provide the LaTeX code for the table below.")
-        print("--------------------------------------------------------------------")
-        print(table_code)
-        print("---------------------------------------------------------------------")
+            print(f"✅ PDF successfully generated: {output_filename}")
+        else:
+            raise RuntimeError("LaTeX did not produce the expected PDF output.")
 
-    # Clean up auxiliary files
-    for ext in [".aux", ".log", ".tex"]:
-        try:
-            os.remove("temp_table" + ext)
-        except FileNotFoundError:
-            pass
+    except FileNotFoundError:
+        print("\n" + "=" * 80)
+        print("🚫 LaTeX compiler (pdflatex) not found on this system.")
+        print("📄 Please install LaTeX to enable PDF generation.\n")
+        print("📎 Meanwhile, here is the raw LaTeX code for your table:\n")
+        print("=" * 80)
+        print(full_latex)
+        print("=" * 80)
+
+    except subprocess.CalledProcessError:
+        print("\n" + "=" * 80)
+        print("❌ LaTeX compilation failed due to syntax or system error.")
+        print("🛠️ Please check your LaTeX installation or document structure.\n")
+        print("📎 Meanwhile, here is the raw LaTeX code for your table:\n")
+        print("=" * 80)
+        print(full_latex)
+        print("=" * 80)
+
+    finally:
+        # Clean up LaTeX auxiliary files
+        for ext in [".aux", ".log", ".tex"]:
+            try:
+                os.remove("temp_table" + ext)
+            except FileNotFoundError:
+                pass
+
 
 
 
@@ -175,11 +186,7 @@ def create_pdf_from_big_table(list_A, output_filename="table_output.pdf"):
         print("❌ PDF compilation failed. Ensure pdflatex is installed.")
 
 
-        print("It seems like you don’t have LaTeX installed on your machine. In this case,",
-             " we provide the LaTeX code for the table below.")
-        print("--------------------------------------------------------------------")
-        print(table_code)
-        print("---------------------------------------------------------------------")
+    
 
 
 
@@ -333,8 +340,9 @@ class OptiMix(object):
             
             print_boxed_message(message)
             
-            message =  ["************If the following warning appears during execution, you can safely ignore it: ",
-            "RuntimeWarning: Mean of empty slice. out=out, **kwargs)*************************"
+            message =  ["************If the following warnings appear during execution, you can safely ignore them: ",
+            "1) RuntimeWarning: Mean of empty slice. out=out, **kwargs)--------------",
+            "2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)*************************"
             ]
             
             print_boxed_message(message)   
@@ -424,8 +432,9 @@ class OptiMix(object):
             
             print_boxed_message(message)
             
-            message =  ["************If the following warning appears during execution, you can safely ignore it: ",
-            "RuntimeWarning: Mean of empty slice. out=out, **kwargs)*************************"
+            message =  ["************If the following warnings appear during execution, you can safely ignore them: ",
+            "1) RuntimeWarning: Mean of empty slice. out=out, **kwargs)--------------",
+            "2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)*************************"
             ]
             
             print_boxed_message(message)   
@@ -456,8 +465,9 @@ class OptiMix(object):
             
             print_boxed_message(message)
             
-            message =  ["************If the following warning appears during execution, you can safely ignore it: ",
-            "RuntimeWarning: Mean of empty slice. out=out, **kwargs)*************************"
+            message =  ["************If the following warnings appear during execution, you can safely ignore them: ",
+            "1) RuntimeWarning: Mean of empty slice. out=out, **kwargs)--------------",
+            "2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)*************************"
             ]
             
             print_boxed_message(message)   
@@ -490,11 +500,12 @@ class OptiMix(object):
             
             print_boxed_message(message)
             
-            message =  ["************If the following warning appears during execution, you can safely ignore it: ",
-            "RuntimeWarning: Mean of empty slice. out=out, **kwargs)*************************"
+            message =  ["************If the following warnings appear during execution, you can safely ignore them: ",
+            "1) RuntimeWarning: Mean of empty slice. out=out, **kwargs)--------------",
+            "2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)*************************"
             ]
             
-            print_boxed_message(message)   
+            print_boxed_message(message)    
             
             self.EXP_14()
                      
@@ -525,8 +536,9 @@ class OptiMix(object):
             
             print_boxed_message(message)
             
-            message =  ["************If the following warning appears during execution, you can safely ignore it: ",
-            "RuntimeWarning: Mean of empty slice. out=out, **kwargs)*************************"
+            message =  ["************If the following warnings appear during execution, you can safely ignore them: ",
+            "1) RuntimeWarning: Mean of empty slice. out=out, **kwargs)--------------",
+            "2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)*************************"
             ]
             
             print_boxed_message(message)   
@@ -629,11 +641,12 @@ class OptiMix(object):
             
             print_boxed_message(message)
             
-            message =  ["************If the following warning appears during execution, you can safely ignore it: ",
-            "RuntimeWarning: Mean of empty slice. out=out, **kwargs)*************************"
+            message =  ["************If the following warnings appear during execution, you can safely ignore them: ",
+            "1) RuntimeWarning: Mean of empty slice. out=out, **kwargs)--------------",
+            "2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)*************************"
             ]
             
-            print_boxed_message(message)  
+            print_boxed_message(message)   
             
             self.EXP_8()
                      
