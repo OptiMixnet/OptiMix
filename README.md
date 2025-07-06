@@ -101,7 +101,7 @@ for the prior works LARMix [29] and LAMP [30].
 - `Mix_Node_.py`: Simulates using discrete event simulation, a mixnode in mixnets.
 - `MixNetArrangement.py`: This .py file implements the diversification algorithm used in LARMix [29], which helps arrange the mixnodes into layers. 
 - `NYM.py`: This .py file provides the main simulation components necessary to simulate a stratified mixnet as used in OptiMix.
-- `NYM_.py`: Mix_Net: This .py file provides the main simulation components necessary to simulate a cascade (butterfly) mixnet as used in OptiMix. 
+- `NYM_.py`: This .py file provides the main simulation components necessary to simulate a cascade (butterfly) mixnet as used in OptiMix. 
 - `Nym_data.json`: The Nym dataset used in the experiments.
 - `Nym_dataset.json`: The Nym dataset used in the experiments (version 2).
 - `NYM_P.py`: Mix_Net: This .py file provides the main simulation components necessary to simulate 
@@ -113,6 +113,3 @@ and generates the corresponding figures.
 - `Sim.py`: This .py file also includes the necessary simulation components for reproducing simulations of OptiMix.
 - `Sim_P.py`: This .py file also includes the necessary simulation components for reproducing simulations of prior works LARMix [29] and LAMP [30].
 
-
-## License
-MIT or your preferred license.
