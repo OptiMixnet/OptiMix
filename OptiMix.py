@@ -1351,7 +1351,7 @@ class OptiMix(object):
 
     def EXP_4(self):
         
-        self.delay2 = self.delay1/(8)
+        self.delay2 = self.delay1
         Class_basic_data_Cascades = Carmix_(self.d_1,self.h,2,self.Targets,self.run,self.delay1,self.delay2_Nym,200,config.corrupted_Mix_)
         
              
