@@ -11,7 +11,7 @@ The artifact has been optimized to run on systems with at least 16\,GB of RAM an
 
 Before executing the code, please ensure your system satisfies the following requirements: Ubuntu 18.04 or higher, Python version between 3.8.10 and 3.10.x (not 3.11 or newer), a minimum of 16\,GB of RAM, and at least 50\,GB of free disk space.
 
-All required dependencies for execution are listed in the \texttt{dependencies.txt} file included in the repository.
+All required dependencies for execution are listed in the dependencies.txt file included in the repository.
 
 
 - matplotlib==3.5.2
@@ -22,10 +22,8 @@ All required dependencies for execution are listed in the \texttt{dependencies.t
 - scikit-learn-extra==0.2.0
 - scipy==1.8.1
 - simpy==4.0.1
-These dependencies can be easily installed using the following command:
-\begin{verbatim}
-pip install -r dependencies.txt
-\end{verbatim}
+These dependencies can be easily installed using the following command: pip install -r dependencies.txt
+
 
 
 ## How to Use
