@@ -156,47 +156,66 @@ def create_pdf_from_latex_table(tau, L1, L2, L3, L4, output_filename="table_outp
                 pass
 
 
-
-
 def create_pdf_from_big_table(list_A, output_filename="table_output.pdf"):
     table_code = generate_big_latex_table(list_A)
+
     tex_filename = "temp_big_table.tex"
     temp_pdf = "temp_big_table.pdf"
 
     with open(tex_filename, "w") as f:
         f.write(table_code)
 
-    # Compile the LaTeX file into a PDF
-    subprocess.run(["pdflatex", tex_filename], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        # Try compiling LaTeX using pdflatex
+        result = subprocess.run(
+            ["pdflatex", tex_filename],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
 
-    if os.path.exists(temp_pdf):
-        if os.path.exists(output_filename):
+        if os.path.exists(temp_pdf):
+            if os.path.exists(output_filename):
+                try:
+                    os.remove(output_filename)
+                except PermissionError:
+                    print(f"⚠️ Cannot overwrite '{output_filename}' — file may be open.")
+                    return
+
             try:
-                os.remove(output_filename)
-            except PermissionError:
-                print(f"⚠️ Cannot overwrite '{output_filename}' — file may be open.")
-                return
+                shutil.move(temp_pdf, output_filename)
+                print(f"✅ PDF successfully generated: {output_filename}")
+            except Exception as e:
+                print(f"❌ Error saving PDF: {e}")
+        else:
+            raise RuntimeError("LaTeX did not produce the expected PDF output.")
 
-        try:
-            shutil.move(temp_pdf, output_filename)
-            print(f"✅ PDF generated: {output_filename}")
-        except Exception as e:
-            print(f"❌ Error saving PDF: {e}")
-    else:
-        print("❌ PDF compilation failed. Ensure pdflatex is installed.")
+    except FileNotFoundError:
+        print("\n" + "=" * 80)
+        print("🚫 LaTeX compiler (pdflatex) not found on this system.")
+        print("📄 Please install LaTeX to enable PDF generation.\n")
+        print("📎 Meanwhile, here is the raw LaTeX code for your table:\n")
+        print("=" * 80)
+        print(table_code)
+        print("=" * 80)
 
+    except subprocess.CalledProcessError:
+        print("\n" + "=" * 80)
+        print("❌ LaTeX compilation failed due to syntax or system error.")
+        print("🛠️ Please check your LaTeX installation or document structure.\n")
+        print("📎 Meanwhile, here is the raw LaTeX code for your table:\n")
+        print("=" * 80)
+        print(table_code)
+        print("=" * 80)
 
-    
+    finally:
+        # Clean up auxiliary files
+        for ext in [".aux", ".log", ".tex"]:
+            try:
+                os.remove("temp_big_table" + ext)
+            except FileNotFoundError:
+                pass
 
-
-
-
-
-    for ext in [".aux", ".log", ".tex"]:
-        try:
-            os.remove("temp_big_table" + ext)
-        except FileNotFoundError:
-            pass
 
 def  generate_big_latex_table(list_A):
 
@@ -594,8 +613,13 @@ class OptiMix(object):
             
             self.EXP_3()
                      
-            message =  ["Thank you for your patience. The results of this experiment have been saved as: ",
-            "Table2.pdf",
+      
+\
+        
+            
+            message =  ["Thank you for your patience. In case LaTeX is not installed on your system, ",
+            "the above lines display the result of the table as rendered output.",
+            "Otherwise, the results of this experiment have been saved as: Table2.pdf",
 
             " Please check the Tables folder to access these files." ]
             
@@ -619,8 +643,9 @@ class OptiMix(object):
             
             self.EXP_4()
                      
-            message =  ["Thank you for your patience. The results of this experiment have been saved as: ",
-            "Table1.pdf",
+            message =  ["Thank you for your patience. In case LaTeX is not installed on your system, ",
+            "the above lines display the result of the table as rendered output.",
+            "Otherwise, the results of this experiment have been saved as: Table1.pdf",
 
             " Please check the Tables folder to access these files." ]
             
@@ -650,12 +675,13 @@ class OptiMix(object):
             
             self.EXP_8()
                      
-            message =  ["Thank you for your patience. The results of this experiment have been saved as: ",
-            "Table3.pdf",
+            message =  ["Thank you for your patience. In case LaTeX is not installed on your system, ",
+            "the above lines display the result of the table as rendered output.",
+            "Otherwise, the results of this experiment have been saved as: Table2.pdf",
 
             " Please check the Tables folder to access these files." ]
             
-            print_boxed_message(message)   
+            print_boxed_message(message)     
 
         elif int(EXP) == 77:
             
