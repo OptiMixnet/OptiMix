@@ -30,7 +30,9 @@ These dependencies can be easily installed using the following command: `pip ins
 ## Code execution
 
 Please refer to the `OptiMix_artifact.pdf` for detailed descriptions of each experiment and the claims they support. To execute the code, run: `python3 Main.py`
-You will be prompted to enter an `Input` value to select the desired experiment. Below is a mapping of inputs to experiments and figures/tables:
+At the beginning, you must run `Main.py` with `Input = 0` once and for all. This initializes the required files and datasets necessary for executing all subsequent experiments.
+To run the rest of the artifact suite, set the `Input` argument as described below to execute specific experiments or to generate any individual figures or tables:
+
 
 
 
@@ -38,18 +40,18 @@ You will be prompted to enter an `Input` value to select the desired experiment.
 - E2:  `Input = 2`
 - E3:  `Input = 3`
 
-- Fig.~2: `Input = 22`
-- Fig.~3: `Input = 33`
-- Fig.~4: `Input = 44`
-- Fig.~5: `Input = 55`
-- Fig.~6: `Input = 66`
-- Fig.~7: `Input = 77`
-- Fig.~8: `Input = 88`
-- Fig.~9: `Input = 99`
+- Fig. 2: `Input = 22`
+- Fig. 3: `Input = 33`
+- Fig. 4: `Input = 44`
+- Fig. 5: `Input = 55`
+- Fig. 6: `Input = 66`
+- Fig. 7: `Input = 77`
+- Fig. 8: `Input = 88`
+- Fig. 9: `Input = 99`
   
-- Tab.~1: `Input = 100`
-- Tab.~2: `Input = 200`
-- Tab.~3: `Input = 300`
+- Tab. 1: `Input = 100`
+- Tab. 2: `Input = 200`
+- Tab. 3: `Input = 300`
 
 
 ## License
