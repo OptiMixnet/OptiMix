@@ -61,8 +61,9 @@ To run the rest of the artifact suite, set the `Input` argument as described bel
 
 - If the following warnings appear during execution, you can safely ignore them:
        
--- 1) RuntimeWarning: Mean of empty slice. out=out, **kwargs
--- 2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)
+1) RuntimeWarning: Mean of empty slice. out=out, **kwargs
+
+2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)
 
 
 ## License
