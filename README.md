@@ -22,6 +22,11 @@ All required dependencies for execution are listed in the \texttt{dependencies.t
 - scikit-learn-extra==0.2.0
 - scipy==1.8.1
 - simpy==4.0.1
+These dependencies can be easily installed using the following command:
+\begin{verbatim}
+pip install -r dependencies.txt
+\end{verbatim}
+
 
 ## How to Use
 Describe steps here...
