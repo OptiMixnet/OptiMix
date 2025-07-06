@@ -5,7 +5,14 @@ This repository contains the artifact for the paper titled "OptiMix: Scalable an
 
 
 ## Initial setup and dependencies
-The code can be executed on any standard laptop or desktop device running Ubuntu 18.04 or higher. It has been tested to work for Python 3.8.10. The dependencies required for executing the code are as follows:
+To execute the artifact, the code can be run on any standard laptop or workstation using Ubuntu 18.04 or higher. It is compatible with Python versions from 3.8.10 up to (but not including) 3.11. Importantly, the artifact includes precisely the same configurations and settings as those used in the original OptiMix evaluation. The only exception is that the number of iterations has been scaled down to ensure feasibility on standard hardware.
+
+The artifact has been optimized to run on systems with at least 16\,GB of RAM and 50\,GB of available disk space. These specifications allow users to reproduce results efficiently without requiring access to high-performance computing environments.
+
+Before executing the code, please ensure your system satisfies the following requirements: Ubuntu 18.04 or higher, Python version between 3.8.10 and 3.10.x (not 3.11 or newer), a minimum of 16\,GB of RAM, and at least 50\,GB of free disk space.
+
+All required dependencies for execution are listed in the \texttt{dependencies.txt} file included in the repository.
+
 
 - matplotlib==3.5.2
 - numpy==1.21.2
