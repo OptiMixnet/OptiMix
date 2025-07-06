@@ -614,8 +614,7 @@ class OptiMix(object):
             self.EXP_3()
                      
       
-\
-        
+      
             
             message =  ["Thank you for your patience. In case LaTeX is not installed on your system, ",
             "the above lines display the result of the table as rendered output.",
