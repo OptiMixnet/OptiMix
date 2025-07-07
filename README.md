@@ -59,7 +59,8 @@ To run the rest of the artifact suite, set the `Input` argument as described bel
 
 - After running each experiment, the corresponding figures will be automatically saved in the "Figures" folder, and the corresponding tables in the "Tables" folder. In case LaTeX is not installed, table results will be printed directly in the terminal.
     
-- For each experiment, we provide initial values for the number of iterations in `config.py` to ensure reproducibility of results similar to those in the paper. These values can be modified as needed. Specifically, increasing the number of iterations improves accuracy and reduces sampling errors, but also increases execution time. Hence, we set the default number of iterations to five.
+- For each experiment, we provide default parameter values—such as the number of iterations—in `config.py` to ensure reproducibility of results similar to those reported in the paper. All values match the original setup used in the paper, except for the number of iterations. These values can be modified by users as needed. Specifically, increasing the number of iterations enhances accuracy and reduces sampling errors, but at the cost of increased execution time. For practical purposes and to ensure the artifact remains runnable on standard hardware, we set the default number of iterations to 5.
+
 
 - If the following warnings appear during execution, you can safely ignore them:
        
