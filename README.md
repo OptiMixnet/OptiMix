@@ -5,15 +5,15 @@ This repository contains the artifact for the paper titled "OptiMix: Scalable an
 
 
 ## Initial setup and dependencies
-You can execute the code on any standard laptop or workstation running Ubuntu 18.04 or higher. It is compatible with Python versions starting from 3.8.10. Importantly, the artifact includes precisely the same configurations and settings used in the original OptiMix evaluation. The only exception is that the number of iterations has been scaled down to ensure feasibility on standard hardware. These configuration parameters can be reviewed and modified in the \texttt{config.py} file.
+You can execute the code on any standard laptop or workstation running Ubuntu 18.04 or higher. It is compatible with Python versions starting from 3.8.10. Importantly, the artifact includes precisely the same configurations and settings used in the original OptiMix evaluation. The only exception is that the number of iterations has been scaled down to ensure feasibility on standard hardware. These configuration parameters can be reviewed and modified in the `config.py` file.
 
 
 The artifact has been optimized to run on systems with at least 16\,GB of RAM and 50\,GB of available disk space. These specifications allow users to reproduce results efficiently without requiring access to high-performance computing environments.
 
-Before executing the code, please ensure your system satisfies the following requirements: Ubuntu 18.04 or higher, Python version between 3.8.10 and 3.10.x (not 3.11 or newer), a minimum of 16\,GB of RAM, and at least 50\,GB of free disk space.
+Before executing the code, please ensure that your system satisfies the following requirements: Ubuntu 18.04 or higher, Python version 3.8.10 or above, a minimum of 16\,GB of RAM, and at least 50\,GB of available disk space.
 
-All required dependencies for execution are listed in the `dependencies.txt` file included in the repository.
-
+All required dependencies for execution are listed in the  `dependencies.txt` file included in the repository and mentioned below.
+            
 
 - matplotlib==3.5.2
 - numpy==1.21.2
@@ -30,8 +30,9 @@ These dependencies can be easily installed using the following command: `pip ins
 
 ## Code execution
 
-Please refer to the `OptiMix_artifact.pdf` for detailed descriptions of each experiment and the claims they support. To execute the code, run: `python3 Main.py`
+Please refer to the `OptiMix_Artifact.pdf` for detailed descriptions of each experiment and the claims they support. To execute the code, run: `python3 Main.py`
 At the beginning, you must run `Main.py` with `Input = 0` once and for all. This initializes the required files and datasets necessary for executing all subsequent experiments.
+
 To run the rest of the artifact suite, set the `Input` argument as described below to execute specific experiments or to generate any individual figures or tables:
 
 
@@ -62,9 +63,9 @@ To run the rest of the artifact suite, set the `Input` argument as described bel
 
 - If the following warnings appear during execution, you can safely ignore them:
        
-1) RuntimeWarning: Mean of empty slice. out=out, **kwargs
+    1) RuntimeWarning: Mean of empty slice. out=out, **kwargs
 
-2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)
+    2) invalid value encountered in scalar divide ret = ret.dtype.type(ret / rcount)
 
 ## Hardware Requirements
 The code is tested to run on commodity hardware with 16 GB RAM, 8 cores, and 50 GB hard disk storage.
