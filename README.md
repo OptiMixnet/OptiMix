@@ -81,7 +81,7 @@ The artifact repository contains the following main files:
 - `Data_Gen.py`: This file helps generate some initial datasets needed for the running OptiMix using both the Nym and RIEP datasets. It is also useful for reproducing Table 3.  
 - `data_refine.py`: This .py file helps adapt some of the data interfaces used in OptiMix.
 - `data_set.py`: Datasets is a class for creating a raw dataset from Nym or RIPE, making it usable for emulating 
-the link delays between mix nodes.  
+the link delays between mixnodes.  
 - `dependencies.txt`: Provides the necessary script to install the dependencies. 
 - `Fancy_Plot.py`: This class or set of functions provides all the necessary code for generating the plots used in OptiMix. 
 - `FCP_Functions.py`: This .py file includes strategies that a mixnode adversary might consider when corrupting mindnodes 
@@ -94,7 +94,7 @@ in mixnets with cascade topologies.
 - `Main.py`: This file provides instructions regarding how to run the experiments described in the main body of the paper. 
 - `Main_F.py`: Main_F.py contains a comprehensive set of functions for analyzing OptiMix on stratified topologies, including all necessary functions to compute anonymity and latency metrics.
 Additionally, this file includes the main functions required to reproduce the key results of LARMix [29] and LAMP [30]. 
-- `Main_F_.py`: Main_F.py contains a comprehensive set of functions for analyzing OptiMix on cascade (also butterfly) topologies, including all necessary functions to compute anonymity and latency metrics. 
+- `Main_F_.py`: Main_F_.py contains a comprehensive set of functions for analyzing OptiMix on cascade (also butterfly) topologies, including all necessary functions to compute anonymity and latency metrics. 
 - `Message_.py`: Simulates the messages generated and sent by the clients.  
 - `Message_Genration_and_mix_net_process0.py`:  This Python file, on behalf of clients, generates the messages to be sent to the mixnet for cascade (butterfly) topologies.
 - `Message_Genration_and_mix_net_process_.py`: This Python file, on behalf of clients, generates the messages to be sent to the mixnet for stratified topologies.
@@ -110,6 +110,7 @@ for the prior works LARMix [29] and LAMP [30].
   mixnets used in prior works LARMix [29] and LAMP [30].
 - `OptiMix.py`: This .py file includes all the functions needed to directly run the main experiments of OptiMix 
 and generates the corresponding figures.
+- `OptiMix_Artifact.pdf`: OptiMix artifact appendix
 - `Ripe_dataset.json`: The RIPE dataset used in the experiments.
 - `Routings.py`: This function helps to model the routing approaches in the prior works LARMix [29] and LAMP [30].
 - `Sim.py`: This .py file also includes the necessary simulation components for reproducing simulations of OptiMix.
