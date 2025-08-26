@@ -2602,6 +2602,8 @@ class OptiMix(object):
   
 
         #################################Entropy GPR######################################
+        data0_ = data0['GPR']
+        data1_ = data1['GPR']
         X_Label = r"Tuning parameter ($\tau$)"
         Y_Label = r"Entropy $\left(\mathsf{H}_{(r)}\right)$" 
         name = 'Figures/Fig3_c.png'
