@@ -10,7 +10,7 @@ You can execute the code on any standard laptop or workstation running Ubuntu 18
 
 The artifact has been optimized to run on systems with at least 16\,GB of RAM and 50\,GB of available disk space. These specifications allow users to reproduce results efficiently without requiring access to high-performance computing environments.
 
-Before executing the code, please ensure that your system satisfies the following requirements: Ubuntu 18.04 or higher, Python version 3.8.10 or above, a minimum of 16\,GB of RAM, and at least 50\,GB of available disk space.
+Before executing the code, please ensure that your system satisfies the following requirements: Ubuntu 18.04 or higher, Python version 3.8.10, a minimum of 16\,GB of RAM, and at least 50\,GB of available disk space.
 
 All required dependencies for execution are listed in the  `dependencies.txt` file included in the repository and mentioned below.
             
