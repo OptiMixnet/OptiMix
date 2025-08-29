@@ -8,7 +8,21 @@ This repository contains the artifact for the paper titled "OptiMix: Scalable an
 You can execute the code on any standard laptop or workstation running Ubuntu 18.04 or higher. It is compatible with Python 3.8.10. Importantly, the artifact includes precisely the same configurations and settings used in the original OptiMix evaluation. The only exception is that the number of iterations has been scaled down to ensure feasibility on standard hardware. These configuration parameters can be reviewed and modified in the `config.py` file.
 
 
-The artifact has been optimized to run on systems with at least 16\,GB of RAM and 50\,GB of available disk space. These specifications allow users to reproduce results efficiently without requiring access to high-performance computing environments.
+That said, such modifications require a deeper understanding of mixnets. Mixnets are complex systems in which changes to a single parameter may influence others. In many cases, certain parameter combinations may be incompatible or may significantly affect the overall results. Additionally, several parameters are initialized based on prior work, and their default values are chosen to support meaningful comparisons. As such, arbitrary configurations may not yield valid outcomes.
+However, the following parameters in `config.py` can be safely modified within specific intervals:
+
+  `Iterations` can be increased to improve accuracy; note that this change increases computational cost linearly.
+  `Num_targets` specifies the number of target messages in the simulations; can be set to any integer in $[20,\,200]$.
+  `run_time` defines the duration of each simulation time slot; can be set to any real value in $[0.3,\,1.0]$.
+  `delay1` represents the average delay imposed on each message upon entering mixnodes; can be set to any real value in $[0.03,\,0.08]$.
+  `e2e_delay` defines the end-to-end latency threshold used in Tabs.~1 and~2; can be varied between $0.16$ and $0.4$.
+
+
+Other parameters should not be modified, as they are tied to fixed design assumptions in mixnets. Altering them may lead to execution errors or invalid experimental results. If users wish to modify such parameters, we recommend contacting the authors directly for further guidance.
+
+
+
+Furthermore, the artifact has been optimized to run on systems with at least 16\,GB of RAM and 50\,GB of available disk space. These specifications allow users to reproduce results efficiently without requiring access to high-performance computing environments.
 
 Before executing the code, please ensure that your system satisfies the following requirements: Ubuntu 18.04 or higher, Python version 3.8.10, a minimum of 16\,GB of RAM, and at least 50\,GB of available disk space.
 
